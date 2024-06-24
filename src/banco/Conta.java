@@ -6,20 +6,28 @@ public class Conta {
 	private Integer agencia;
 	private Double saldo;
 	private Cliente cliente;
-	
+
 	public void deposita(double valorDepositado) {
+		validaDeposito(valorDepositado);
+	}
+
+	public void validaDeposito(double valorDepositado) {
 		if (valorDepositado <= 0) {
 			System.out.println("ERRO! valor invalido");
-		}else {
-			saldo =+ valorDepositado;
+		} else {
+			saldo = +valorDepositado;
 		}
 	}
-	
+
 	public void saca(double valorSacado) {
-		if(valorSacado <= 0 || valorSacado > saldo) {
+		validaSaque(valorSacado);
+	}
+
+	public void validaSaque(double valorSacado) {
+		if (valorSacado <= 0 || valorSacado > saldo) {
 			System.out.println("ERRO! valor invalido");
-		}else {
-			saldo =- valorSacado;
+		} else {
+			saldo = -valorSacado;
 		}
 	}
 
